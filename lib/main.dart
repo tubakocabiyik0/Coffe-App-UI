@@ -1,4 +1,5 @@
 import 'package:coffe_app/secreens/home_page.dart';
+import 'package:coffe_app/secreens/products_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Coffe Shop',
-      home: HomePage(),
+      home:HomePage(),
 
     );
   }

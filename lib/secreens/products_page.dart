@@ -101,7 +101,6 @@ class _ProductsPageState extends State<ProductsPage> {
               child: PageView.builder(
                   onPageChanged: (value) {
                     if (value + 1 == _coffe.prices.length) {
-                      print("burası");
 
                       // ignore: unnecessary_statements
                       _pageController.position.physics.parent ==
@@ -127,32 +126,33 @@ class _ProductsPageState extends State<ProductsPage> {
                     final value = -0.4 * result + 1;
                     final opacity = value.clamp(0.0, 1.0);
 
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(PageRouteBuilder(
-                              pageBuilder: (context, animation, _) {
-                                return FadeTransition(opacity: animation,
-                                  child: ProductDetailsPage(index),);
-                              }));
-                        },
-                        child: Transform(
-                            alignment: Alignment.bottomCenter,
-                            transform: Matrix4.identity()
-                              ..setEntry(3, 2, 0.001)
-                              ..translate(
-                                  0.0,
-                                  MediaQuery
-                                      .of(context)
-                                      .size
-                                      .height /
-                                      2.6 *
-                                      (1 - value).abs())
-                              ..scale(value),
-                            child: Opacity(
-                                opacity: opacity, child: Image.asset(coffe))),
-                      ),
+                    return
+                       Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(PageRouteBuilder(
+                                pageBuilder: (context, animation, _) {
+                                  return FadeTransition(opacity: animation,
+                                    child: ProductDetailsPage(index),);
+                                }));
+                          },
+                          child: Transform(
+                              alignment: Alignment.bottomCenter,
+                              transform: Matrix4.identity()
+                                ..setEntry(3, 2, 0.001)
+                                ..translate(
+                                    0.0,
+                                    MediaQuery
+                                        .of(context)
+                                        .size
+                                        .height /
+                                        2.6 *
+                                        (1 - value).abs())
+                                ..scale(value),
+                              child: Opacity(
+                                  opacity: opacity, child: Image.asset(coffe)))),
+
                     );
                   }),
             ),
